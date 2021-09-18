@@ -8,25 +8,13 @@ of reading the same forwards as it does backwards, character for character,
 sometimes disregarding punctuation, capitalization and diacritics.
 */
 
-// I just wonder if for really big strings whether comparing the chunks
-// might be faster than comparing by character.
-
-// Oh, creating palindromes that long is actually non-trivial, and this turns
-// into a longer exercise than I want to go through
-
 const isPalindrome = input => {
 	const regex = /[\W_]/g;
-	const ping = function () {
-		console.log(new Date().getTime());
-	};
-	const palindromeComparisonByCharacter = str => {
-		ping();
+	const palindromeComparison = str => {
 		for (let i = 0; i < str.length / 2; i++) {
 			if (str[i] !== str[str.length - 1 - i]) {
-				ping();
 				return false;
 			}
-			ping();
 			return true;
 		}
 	};
@@ -35,7 +23,7 @@ const isPalindrome = input => {
 			return true;
 		} else {
 			const lowercaseNoMarks = input.toLowerCase().replace(regex, '');
-			return palindromeComparisonByCharacter(lowercaseNoMarks);
+			return palindromeComparison(lowercaseNoMarks);
 		}
 	}
 	if (typeof input === 'number' || input instanceof Number) {
@@ -44,7 +32,7 @@ const isPalindrome = input => {
 			return false;
 		} else {
 			const strNoMarks = input.toString().replace(regex, '');
-			return palindromeComparisonByCharacter(strNoMarks);
+			return palindromeComparison(strNoMarks);
 		}
 	}
 	return false;
