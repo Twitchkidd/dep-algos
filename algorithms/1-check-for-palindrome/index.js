@@ -11,6 +11,9 @@ sometimes disregarding punctuation, capitalization and diacritics.
 // I just wonder if for really big strings whether comparing the chunks
 // might be faster than comparing by character.
 
+// Whoops, I committed again with the same message, I thought that was going to
+// run nodemon for some reason ¯\_(ツ)_/¯
+
 const isPalindrome = input => {
 	const regex = /[\W_]/g;
 	const palindromeComparisonByCharacter = str => {
